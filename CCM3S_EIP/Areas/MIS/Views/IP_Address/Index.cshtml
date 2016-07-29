@@ -1,0 +1,126 @@
+﻿@model   PagedList.IPagedList<CCM3S_EIP.Models.IP_Address>
+
+@*model IEnumerable<CCM3S_EIP.Models.IP_Address>*@
+
+@{
+    ViewBag.Title = "IP分配表";
+        //Layout = "~/Views/Shared/_ToolBar.cshtml";
+}
+@section styles{
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}
+    <h2>IP分配表</h2>
+
+    @*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+    <div class="row small">
+    <div class="col-md-6 text-left small">
+        <form action="@Url.Action("Index","IP_Address")" method="get" class="form-inline">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon">搜尋</div>
+                    <input type="text" class="form-control" id="SearchString" name="SearchString" value="@(ViewBag.CurrentFilter as string)" placeholder="192.168.XXX.XXX">
+
+                </div>
+            </div>
+            @*<div class="form-group">
+                <div class="input-group">
+                        <div class="input-group-addon">Page</div>
+                        @Html.DropDownList("page", (List<SelectListItem>)ViewBag.PageItems, new { @class = "form-control" })
+                </div>
+            </div>*@
+            <button class="btn btn-success" type="submit">送出</button>
+            <a href='~/MIS/IP_Address/Create' class="btn btn-primary" role="button">
+                <i class="glyphicon glyphicon-pencil"></i> 新增IP資料
+            </a>
+        </form>
+    </div>
+    </div>
+    <div class="row small">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }),
+        new PagedListRenderOptions
+        {
+            DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+            DisplayLinkToLastPage = PagedListDisplayMode.Always,
+            DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+            DisplayLinkToNextPage = PagedListDisplayMode.Always,
+            DisplayLinkToIndividualPages = true,
+            LinkToFirstPageFormat = "<< 第一頁",
+            LinkToPreviousPageFormat= "<前一頁",
+            LinkToNextPageFormat = "後一頁>",
+            LinkToLastPageFormat = "最末頁>>",
+            DisplayPageCountAndCurrentLocation = true,
+            PageCountAndCurrentLocationFormat = "第 {0} 頁 / 共 {1} 頁",
+            DisplayItemSliceAndTotal = true,
+            ItemSliceAndTotalFormat = "項目：{0} ~ {1} , 共 {2} 項"
+        })
+    </div>
+    <table class="table table-hover">
+        <tr class="success">
+            <th class="text-center">
+                IP位址
+            </th>
+            @*<th class="text-center">
+                MAC位址
+            </th>*@
+            <th class="text-center">
+                部門
+            </th>
+            <th class="text-center">
+                使用者
+            </th>
+            <th class="text-center">
+                設備
+            </th>
+            <th class="text-center">
+                執行
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ip_addr)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.mac_addr)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.dept)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.device)
+                </td>
+                <td>
+                    @Html.ActionLink("編輯", "Edit", new { id = item.sn }) |
+                    @Html.ActionLink("詳細", "Details", new { id = item.sn }) |
+                    @Html.ActionLink("刪除", "Delete", new { id = item.sn })
+                </td>
+            </tr>
+        }
+
+    </table>
+<div class="row small">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }),
+        new PagedListRenderOptions
+        {
+            DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+            DisplayLinkToLastPage = PagedListDisplayMode.Always,
+            DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+            DisplayLinkToNextPage = PagedListDisplayMode.Always,
+            DisplayLinkToIndividualPages = true,
+            LinkToFirstPageFormat = "<< 第一頁",
+            LinkToPreviousPageFormat = "<前一頁",
+            LinkToNextPageFormat = "後一頁>",
+            LinkToLastPageFormat = "最末頁>>",
+            DisplayPageCountAndCurrentLocation = true,
+            PageCountAndCurrentLocationFormat = "第 {0} 頁 / 共 {1} 頁",
+            DisplayItemSliceAndTotal = true,
+            ItemSliceAndTotalFormat = "項目：{0} ~ {1} , 共 {2} 項"
+        })
+</div>

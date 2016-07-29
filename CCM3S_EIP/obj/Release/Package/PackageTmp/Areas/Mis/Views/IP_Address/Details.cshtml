@@ -1,0 +1,91 @@
+﻿@model CCM3S_EIP.Models.IP_Address
+@*model CCM3S_EIP.Areas.MIS.Models.IP_Address*@
+@{
+    ViewBag.Title = "明細";
+}
+
+<h2>IP分配表</h2>
+
+<div>
+    <h4>明細</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.ip_addr)*@
+            IP位址
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ip_addr)
+        </dd>
+
+        <dt>
+            MAC位址
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mac_addr)
+        </dd>
+
+        <dt>
+            部門
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dept)
+        </dd>
+
+        <dt>
+            使用者
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user)
+        </dd>
+
+        <dt>
+            設備
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.device)
+        </dd>
+
+        <dt>
+            作業系統
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.os)
+        </dd>
+
+        <dt>
+            群組
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.group)
+        </dd>
+
+        <dt>
+            防毒軟體
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.antivirus)
+        </dd>
+
+        <dt>
+            備註
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.remark)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("編輯", "Edit", new { id = Model.sn }) |
+    <a class="btn btn-success" href="javascript:void(0);" onclick="history.go(-1);" role="button">上一頁</a>
+</p>

@@ -1,0 +1,49 @@
+﻿@model   CCM3S_EIP.Models.PU_ALBUMS
+@{
+    Layout = null;
+}
+<h4>主要分類</h4>
+<div class="row">
+    <div class="col-md-6 col-md-offset-2 imgbox">
+        <div class="col-md-4">
+            <a class="fancybox-thumbs"
+               data-fancybox-group="thumb"
+               href="@Url.Content(Model.ImgPath)"
+               title="@Url.Content(Model.FileName)-@Url.Content(Model.Descript)">
+                <img src="@Url.Content(Model.ImgPath)" class="img-responsive  center-block ">
+            </a>
+        </div>
+        <div class="col-md-8  ">
+                <div class="pull-right">
+                    <a href="@Url.Action("UploadImgMulti","ManageAlbum",  new { id = Model.Id })" class="btn btn-primary"
+                       data-toggle="tooltip" data-placement="top" title="新增照片">
+                        <li class="glyphicon glyphicon-upload" aria-hidden="true"></li>
+                    </a>
+                </div>
+                <div class="pull-right">
+                    @*@Html.ActionLink("刪除", "DeleteoOneSelf", "UploadItem", new { id = item.Id }, new { @class = "btn btn-danger", @data_toggle = "tooltip", @data_placement = "top", @title = "刪除照片集", @onclick = "return Confirm_Form()" })*@
+                    @*<a href="@Url.Action("DeleteoOneSelf", "ManageAlbum", new { id = Model.Id })" class="btn btn-danger"
+                       data-toggle="tooltip" data-placement="top" title="刪除照片集" onclick="Confirm_DelAlbum()">
+                        <li class="glyphicon glyphicon-remove" aria-hidden="true"></li>
+                    </a>*@
+                    <a href="#" role="button" data-target="#deldialog" data-id="@Model.Id"
+                       class="btn btn-danger show_deldialog_master" data-toggle="modal"
+                       rel="tooltip" data-original-title='刪除照片集'
+                       data-placement="top" title="刪除照片集">
+                        <li class="glyphicon glyphicon-remove" aria-hidden="true"></li>
+                    </a>
+                </div>
+          
+            @*<div class="pull-right"><a href="#" class="btn btn-danger btn-sm" role="button"><i class="glyphicon  glyphicon-search"></i></a></div>*@
+            <div class="producttitle">檔名:@Html.DisplayFor(Model => Model.FileName)</div>
+
+            <div class="productprice">
+                <div class="producttext">機號:@Html.DisplayFor(Model => Model.Prod_no)</div>
+                <div class="producttext">生產日期:@Html.DisplayFor(Model => Model.Pdate)</div>
+                <div class="producttext">描述:@Html.DisplayFor(Model => Model.Descript)</div>
+                <div class="producttext">分類:@Html.DisplayFor(Model => Model.KindType1)</div>   
+            </div>
+            
+        </div>
+    </div>
+</div>

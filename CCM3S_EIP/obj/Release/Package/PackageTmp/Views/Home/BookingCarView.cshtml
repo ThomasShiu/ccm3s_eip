@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CCM3S_EIP.Models.VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR>
+@{
+    Layout = null;
+}
+<table class="table table-bordered table-striped">
+    <tr>
+
+        <th>
+            公務車輛
+        </th>
+        <th>
+            申請人
+        </th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @*@Html.DisplayFor(modelItem => item.ObjectNM)*@
+            @Html.ActionLink(item.ObjectNM, "CarCalendar", "Home", new { Area = "" }, new { })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMP_NM)
+        </td>
+       
+    </tr>
+}
+
+</table>

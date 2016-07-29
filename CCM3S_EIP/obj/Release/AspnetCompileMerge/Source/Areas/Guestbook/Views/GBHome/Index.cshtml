@@ -1,0 +1,145 @@
+﻿@model CCM3S_EIP.Areas.Guestbook.ViewModels.GuestbookView
+
+@{
+    ViewBag.Title = "留言板";
+}
+@section styles{
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <link href="~/Content/shopitem.css" rel="stylesheet" />
+ }
+<h2>Index</h2>
+
+@*載入新增留言頁面*@
+<div class="col-lg-12">
+ @Html.Action("Create")
+</div>
+
+<div class="col-lg-12">
+    <div class="col-md-12">
+        @* 建立搜尋所須表單 *@
+        @using (Html.BeginForm("Index", "GBHome", FormMethod.Get))
+        {
+            <table>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.Search)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Search)
+                    </td>
+                    <td>
+                        <input type="submit" value="搜尋" />
+                    </td>
+                </tr>
+            </table>
+            @* 資料不是零筆，則顯示紀錄，並列出新增、刪除、修改連結 *@
+        if (!Model.DataList.Count.Equals(0))
+        {
+            foreach (var item in Model.DataList)
+            {
+
+                <div class="row col-md-10  productbox">
+                    <div class="row">
+                        <div class="col-md-1">
+                            @Html.DisplayName("名字:")
+                        </div>
+                        <div class="col-md-2">
+                            @item.Name
+                        </div>
+
+                        <div class="col-md-2">
+                            @Html.DisplayName("新增時間:")
+                        </div>
+                        <div class="col-md-3">
+                            @item.CreateTime
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div>
+                            @Html.DisplayName("留言內容:")
+                        </div>
+                        <div>
+                            @item.Content
+                        </div>
+                    </div>
+                    @if (item.ReplyTime != null)
+                    {
+                        <div class="row">
+                            <div class="col-md-1">
+                                @Html.DisplayName("回覆時間:")
+                            </div>
+                            <div class="col-md-11">
+                                @item.ReplyTime
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div>
+                                @Html.DisplayName("回覆內容:")
+                            </div>
+                            <div>
+                                @item.Reply
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="row col-md-2  ">
+                    <li>@Html.ActionLink("修改留言", "Edit", new { id = item.id })</li>
+                    <li>@Html.ActionLink("回覆留言", "Reply", new { id = item.id })</li>
+                    <li>@Html.ActionLink("刪除留言", "Delete", new { id = item.id })</li>
+
+                </div>
+            }
+        }
+        @*無資料*@
+        else
+        {
+            <div> 資料庫查無資料</div>
+
+        }
+
+
+                @* 若目前所在頁數大於1，則顯示上一頁與最前頁的按鈕 *@
+                <div class="col-lg-4">
+                    @if (Model.Paging.NowPage > 1)
+                    {
+                    @Html.ActionLink(" << ", "Index", new { Page = 1, Search = Model.Search })
+                    @Html.ActionLink(" < ", "Index", new { Page = Model.Paging.NowPage - 1, Search = Model.Search })
+                    }
+                </div>
+
+                @* 顯示當前頁數前後各五頁的頁數*@
+                <div class="col-lg-4">
+                    @for (var page = (Model.Paging.NowPage - 6); page < (Model.Paging.NowPage + 6); page++)
+                    {
+                        if ((page > 0) && (page <= Model.Paging.MaxPage))
+                        {
+
+                            // 當前頁不為超聯結
+                            if (page == Model.Paging.NowPage)
+                            {
+                            <b>@page</b>
+                            }
+                            else
+                            {
+                            @Html.ActionLink(page.ToString(), "Index", new { Page = page, Search = Model.Search })
+                            }
+                        }
+                    }
+                </div>
+                <div class="col-lg-4">
+                    @* 若目前所在頁數小於總頁數，則顯示下一頁與最後一頁的按鈕 *@
+                    @if (Model.Paging.NowPage < Model.Paging.MaxPage)
+                    {
+                        @Html.ActionLink(" > ", "Index", new { page = Model.Paging.NowPage + 1, Search = Model.Search })
+                        @Html.ActionLink(" >> ", "Index", new { page = Model.Paging.MaxPage, Search = Model.Search })
+                    }
+                </div>
+
+
+        }
+    </div>
+    </div>
+ @section Scripts {
+   @Scripts.Render("~/bundles/jqueryval")
+ }

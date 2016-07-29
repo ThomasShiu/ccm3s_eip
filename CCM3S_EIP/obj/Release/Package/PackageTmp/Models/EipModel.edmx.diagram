@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="df197af93a8e40128d89e77308bcba3a" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="EIP01Model.VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR" Width="3.125" PointX="5.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EIP01Model.PDM_CONNECT_COUNT" Width="2.5" PointX="0.5" PointY="0.625" />
+        <EntityTypeShape EntityType="EIP01Model.IP_Address" Width="2" PointX="9" PointY="0.5" />
+        <EntityTypeShape EntityType="EIP01Model.ActionLog" Width="1.5" PointX="14" PointY="0.5" />
+        <EntityTypeShape EntityType="EIP01Model.V_BOOKING_CAR" Width="2.625" PointX="11.125" PointY="0.5" />
+        <EntityTypeShape EntityType="EIP01Model.V_BOOKING_MEETROOM" Width="2.25" PointX="3.25" PointY="0.5" />
+        <EntityTypeShape EntityType="EIP01Model.VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM" Width="3.625" PointX="0.5" PointY="3.75" />
+        <EntityTypeShape EntityType="EIP01Model.V_ERP_ITEM" Width="1.75" PointX="4.375" PointY="3.75" />
+        <EntityTypeShape EntityType="EIP01Model.SRVPRODDL" Width="1.5" PointX="10.375" PointY="3.75" />
+        <EntityTypeShape EntityType="EIP01Model.SRVPRODMT" Width="1.5" PointX="8.25" PointY="3.75" />
+        <AssociationConnector Association="EIP01Model.FK_dbo_SRVPRODDL_1" />
+        <EntityTypeShape EntityType="EIP01Model.V_SRVPRODMT" Width="1.5" PointX="6.375" PointY="3.75" />
+        <EntityTypeShape EntityType="EIP01Model.V_SRVDATAMT" Width="1.5" PointX="12.5" PointY="3.75" />
+        <EntityTypeShape EntityType="EIP01Model.BU_GUESTBOOK" Width="1.75" PointX="0.5" PointY="6.875" />
+        <EntityTypeShape EntityType="EIP01Model.V_EMP_ALBUM" Width="1.5" PointX="3.375" PointY="7.75" />
+        <EntityTypeShape EntityType="EIP01Model.PU_ALBUMS" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="EIP01Model.PU_CONNECT_COUNT" Width="1.5" PointX="0.75" PointY="10.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

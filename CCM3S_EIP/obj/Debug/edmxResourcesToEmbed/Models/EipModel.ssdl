@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EIP01Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ActionLog">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Operator" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Refer" Type="varchar" MaxLength="300" />
+    <Property Name="Destination" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="Method" Type="varchar" MaxLength="5" />
+    <Property Name="MobleDevices" Type="bit" Nullable="false" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="40" />
+    <Property Name="RequestTime" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BU_GUESTBOOK">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Content" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Reply" Type="nvarchar" MaxLength="500" />
+    <Property Name="ReplyTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="IP_Address">
+    <Key>
+      <PropertyRef Name="sn" />
+    </Key>
+    <Property Name="sn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ip_addr" Type="varchar" MaxLength="50" />
+    <Property Name="mac_addr" Type="varchar" MaxLength="50" />
+    <Property Name="dept" Type="nvarchar" MaxLength="50" />
+    <Property Name="user" Type="nvarchar" MaxLength="50" />
+    <Property Name="device" Type="varchar" MaxLength="50" />
+    <Property Name="os" Type="varchar" MaxLength="50" />
+    <Property Name="group" Type="varchar" MaxLength="50" />
+    <Property Name="antivirus" Type="nvarchar" MaxLength="50" />
+    <Property Name="remark" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="PDM_CONNECT_COUNT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CREATE_DATE" Type="datetime" Nullable="false" />
+    <Property Name="ON_LINE_CNT" Type="int" />
+    <Property Name="ACCOUNT_CNT" Type="int" />
+  </EntityType>
+  <EntityType Name="PU_ALBUMS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="parentId" Type="int" />
+    <Property Name="childId" Type="int" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Size" Type="int" />
+    <Property Name="Prod_no" Type="varchar" MaxLength="50" />
+    <Property Name="Pdate" Type="date" />
+    <Property Name="Descript" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImgPath" Type="nvarchar" MaxLength="500" />
+    <Property Name="KindType1" Type="varchar" MaxLength="50" />
+    <Property Name="KindType2" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateEmp" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SRVPRODDL">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PROD_NO" Type="nchar" MaxLength="24" Nullable="false" />
+    <Property Name="PROD_SR" Type="int" Nullable="false" />
+    <Property Name="ENTRY" Type="nchar" MaxLength="30" />
+    <Property Name="DSCP_1" Type="nchar" MaxLength="60" />
+    <Property Name="DSCP_2" Type="nchar" MaxLength="60" />
+    <Property Name="DSCP_3" Type="nchar" MaxLength="60" />
+    <Property Name="MT_id" Type="int" />
+  </EntityType>
+  <EntityType Name="SRVPRODMT">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PROD_NO" Type="nchar" MaxLength="24" Nullable="false" />
+    <Property Name="PROD_TY" Type="nchar" MaxLength="24" />
+    <Property Name="ITEM_NO" Type="nchar" MaxLength="24" Nullable="false" />
+    <Property Name="M_ITEM_NO" Type="nchar" MaxLength="24" />
+    <Property Name="M_ITEM_ID" Type="nchar" MaxLength="24" />
+    <Property Name="SO_DT" Type="datetime" />
+    <Property Name="SO_TY" Type="nchar" MaxLength="4" />
+    <Property Name="SO_NO" Type="nchar" MaxLength="15" />
+    <Property Name="SO_SR" Type="int" />
+    <Property Name="SO_CS_NO" Type="nchar" MaxLength="10" />
+    <Property Name="FA_NO" Type="nchar" MaxLength="10" />
+    <Property Name="CS_NO" Type="nchar" MaxLength="10" />
+    <Property Name="TO_ADDR" Type="nchar" MaxLength="80" />
+    <Property Name="PROD_GUAR_MM" Type="int" Nullable="false" />
+    <Property Name="PROD_GUAR_DT" Type="datetime" Nullable="false" />
+    <Property Name="M_ITEM_GUAR_MM" Type="int" Nullable="false" />
+    <Property Name="M_ITEM_GUAR_DT" Type="datetime" Nullable="false" />
+    <Property Name="REMK" Type="nvarchar" MaxLength="1024" />
+    <Property Name="CO_TY" Type="nchar" MaxLength="4" />
+    <Property Name="CO_NO" Type="nchar" MaxLength="15" />
+    <Property Name="CO_SR" Type="int" />
+    <Property Name="CS_VCH_NO" Type="nchar" MaxLength="20" />
+    <Property Name="QT_TY" Type="nchar" MaxLength="4" />
+    <Property Name="QT_NO" Type="nchar" MaxLength="15" />
+    <Property Name="QT_SR" Type="int" />
+    <Property Name="OWNER_USR_NO" Type="nchar" MaxLength="10" />
+    <Property Name="OWNER_GRP_NO" Type="nchar" MaxLength="10" />
+    <Property Name="ADD_DT" Type="datetime" />
+    <Property Name="IP_NM" Type="nchar" MaxLength="30" />
+    <Property Name="CP_NM" Type="nchar" MaxLength="30" />
+  </EntityType>
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'EIP01.dbo.V_BOOKING_CAR' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="V_BOOKING_CAR">
+    <Key>
+      <PropertyRef Name="ObjectSID" />
+    </Key>
+    <Property Name="ObjectSID" Type="bigint" Nullable="false" />
+    <Property Name="BOOKING_SID" Type="bigint" />
+    <Property Name="ObjectNM" Type="nvarchar" MaxLength="50" />
+    <Property Name="ObjectType" Type="nvarchar" MaxLength="20" />
+    <Property Name="EMP_NM" Type="nvarchar" MaxLength="12" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="50" />
+    <Property Name="BookingStartTime" Type="varchar" MaxLength="8000" />
+    <Property Name="BookingEndTIme" Type="varchar" MaxLength="8000" />
+    <Property Name="Mileage" Type="int" />
+    <Property Name="MileageLast" Type="int" />
+  </EntityType>
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'EIP01.dbo.V_BOOKING_MEETROOM' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="V_BOOKING_MEETROOM">
+    <Key>
+      <PropertyRef Name="ObjectSID" />
+    </Key>
+    <Property Name="ObjectSID" Type="bigint" Nullable="false" />
+    <Property Name="BOOKING_SID" Type="bigint" />
+    <Property Name="ObjectNM" Type="nvarchar" MaxLength="50" />
+    <Property Name="ObjectType" Type="nvarchar" MaxLength="20" />
+    <Property Name="EMP_NM" Type="nvarchar" MaxLength="12" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="50" />
+    <Property Name="BookingStartTime" Type="varchar" MaxLength="8000" />
+    <Property Name="BookingEndTIme" Type="varchar" MaxLength="8000" />
+    <Property Name="Mileage" Type="int" />
+    <Property Name="MileageLast" Type="int" />
+  </EntityType>
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'EIP01.dbo.V_EMP_ALBUM' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="V_EMP_ALBUM">
+    <Key>
+      <PropertyRef Name="EMPLYID" />
+      <PropertyRef Name="EMPLYNM" />
+    </Key>
+    <Property Name="EMPLYID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="EMPLYNM" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="DEPID" Type="nvarchar" MaxLength="6" />
+    <Property Name="DEPNM" Type="nvarchar" MaxLength="20" />
+    <Property Name="BRTHDT" Type="datetime" />
+    <Property Name="C_STA" Type="nvarchar" MaxLength="1" />
+    <Property Name="REGDT" Type="datetime" />
+    <Property Name="LLFDT" Type="datetime" />
+    <Property Name="CName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhotoUrl" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'EIP01.dbo.V_ERP_ITEM' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="V_ERP_ITEM">
+    <Key>
+      <PropertyRef Name="ITEM_NO" />
+      <PropertyRef Name="UNIT" />
+    </Key>
+    <Property Name="ITEM_NO" Type="nchar" MaxLength="24" Nullable="false" />
+    <Property Name="ITEM_NM" Type="nchar" MaxLength="30" />
+    <Property Name="ITEM_SP" Type="nchar" MaxLength="30" />
+    <Property Name="ITEM_NO_O" Type="nchar" MaxLength="24" />
+    <Property Name="CLAS_NO" Type="nchar" MaxLength="10" />
+    <Property Name="CLAS_NO1" Type="nchar" MaxLength="10" />
+    <Property Name="UNIT" Type="nchar" MaxLength="4" Nullable="false" />
+  </EntityType>
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'EIP01.dbo.V_SRVDATAMT' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="V_SRVDATAMT">
+    <Key>
+      <PropertyRef Name="VCH_TY" />
+      <PropertyRef Name="VCH_NO" />
+    </Key>
+    <Property Name="VCH_TY" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="VCH_NO" Type="nchar" MaxLength="15" Nullable="false" />
+    <Property Name="VCH_DT" Type="datetime" />
+    <Property Name="RCV_MODE" Type="nchar" MaxLength="10" />
+    <Property Name="EMP_NO" Type="nchar" MaxLength="10" />
+    <Property Name="PROD_NO" Type="nchar" MaxLength="24" />
+    <Property Name="CS_NO" Type="nchar" MaxLength="10" />
+    <Property Name="PROB_REC" Type="nvarchar" MaxLength="1024" />
+    <Property Name="TO_ADDR" Type="nvarchar" MaxLength="80" />
+    <Property Name="CURRENCY" Type="nchar" MaxLength="4" />
+    <Property Name="EXCH_RATE" Type="numeric" Precision="12" Scale="6" />
+    <Property Name="IVC_PAGE" Type="nchar" MaxLength="1" />
+    <Property Name="TAX_TY" Type="nchar" MaxLength="1" />
+    <Property Name="TAX_RT" Type="numeric" Precision="15" Scale="4" />
+    <Property Name="PART_AMT" Type="numeric" Precision="15" Scale="4" />
+    <Property Name="MMT_AMT" Type="numeric" Precision="15" Scale="4" />
+    <Property Name="PLAN_DT" Type="datetime" />
+    <Property Name="REAL_DT" Type="datetime" />
+    <Property Name="REMK" Type="nvarchar" MaxLength="1024" />
+    <Property Name="C_CLS" Type="nchar" MaxLength="1" />
+    <Property Name="N_PRT" Type="int" />
+    <Property Name="C_CFM" Type="nchar" MaxLength="1" />
+    <Property Name="CFM_DT" Type="datetime" />
+    <Property Name="OWNER_GRP_NO" Type="nchar" MaxLength="10" />
+    <Property Name="ADD_DT" Type="datetime" />
+    <Property Name="CFM_USR_NO" Type="nchar" MaxLength="10" />
+    <Property Name="IP_NM" Type="nchar" MaxLength="30" />
+    <Property Name="CP_NM" Type="nchar" MaxLength="30" />
+  </EntityType>
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'EIP01.dbo.V_SRVPRODMT' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="V_SRVPRODMT">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="PROD_NO" />
+      <PropertyRef Name="ITEM_NO" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PROD_NO" Type="nchar" MaxLength="24" Nullable="false" />
+    <Property Name="PROD_TY" Type="nchar" MaxLength="24" />
+    <Property Name="ITEM_NO" Type="nchar" MaxLength="24" Nullable="false" />
+    <Property Name="ITEM_NM" Type="nvarchar(max)" />
+  </EntityType>
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'EIP01.dbo.VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR">
+    <Key>
+      <PropertyRef Name="ObjectSID" />
+    </Key>
+    <Property Name="ObjectSID" Type="bigint" Nullable="false" />
+    <Property Name="BOOKING_SID" Type="bigint" />
+    <Property Name="ObjectNM" Type="nvarchar" MaxLength="50" />
+    <Property Name="ObjectType" Type="nvarchar" MaxLength="20" />
+    <Property Name="EMP_NM" Type="nvarchar" MaxLength="12" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="50" />
+    <Property Name="BookingStartTime" Type="char" MaxLength="5" />
+    <Property Name="BookingEndTIme" Type="char" MaxLength="5" />
+    <Property Name="Mileage" Type="int" />
+    <Property Name="MileageLast" Type="int" />
+  </EntityType>
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'EIP01.dbo.VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM">
+    <Key>
+      <PropertyRef Name="ObjectSID" />
+    </Key>
+    <Property Name="ObjectSID" Type="bigint" Nullable="false" />
+    <Property Name="BOOKING_SID" Type="bigint" />
+    <Property Name="ObjectNM" Type="nvarchar" MaxLength="50" />
+    <Property Name="ObjectType" Type="nvarchar" MaxLength="20" />
+    <Property Name="EMP_NM" Type="nvarchar" MaxLength="12" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="50" />
+    <Property Name="BookingStartTime" Type="char" MaxLength="5" />
+    <Property Name="BookingEndTIme" Type="char" MaxLength="5" />
+    <Property Name="Mileage" Type="int" />
+  </EntityType>
+  <Association Name="FK_dbo_SRVPRODDL_1">
+    <End Role="SRVPRODMT" Type="Self.SRVPRODMT" Multiplicity="0..1" />
+    <End Role="SRVPRODDL" Type="Self.SRVPRODDL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SRVPRODMT">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SRVPRODDL">
+        <PropertyRef Name="MT_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="DropWorkflowInbox" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="processId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="DropWorkflowProcess" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="DropWorkflowProcesses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ERP_Mo_ProgressCheck" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ITEM_NO" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SearchAllTables" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SearchStr" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spWorkflowProcessResetRunningStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="EIP01ModelStoreContainer">
+    <EntitySet Name="ActionLog" EntityType="Self.ActionLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BU_GUESTBOOK" EntityType="Self.BU_GUESTBOOK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IP_Address" EntityType="Self.IP_Address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PDM_CONNECT_COUNT" EntityType="Self.PDM_CONNECT_COUNT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PU_ALBUMS" EntityType="Self.PU_ALBUMS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SRVPRODDL" EntityType="Self.SRVPRODDL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SRVPRODMT" EntityType="Self.SRVPRODMT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="V_BOOKING_CAR" EntityType="Self.V_BOOKING_CAR" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_BOOKING_CAR].[ObjectSID] AS [ObjectSID], 
+    [V_BOOKING_CAR].[BOOKING_SID] AS [BOOKING_SID], 
+    [V_BOOKING_CAR].[ObjectNM] AS [ObjectNM], 
+    [V_BOOKING_CAR].[ObjectType] AS [ObjectType], 
+    [V_BOOKING_CAR].[EMP_NM] AS [EMP_NM], 
+    [V_BOOKING_CAR].[Subject] AS [Subject], 
+    [V_BOOKING_CAR].[BookingStartTime] AS [BookingStartTime], 
+    [V_BOOKING_CAR].[BookingEndTIme] AS [BookingEndTIme], 
+    [V_BOOKING_CAR].[Mileage] AS [Mileage], 
+    [V_BOOKING_CAR].[MileageLast] AS [MileageLast]
+    FROM [dbo].[V_BOOKING_CAR] AS [V_BOOKING_CAR]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_BOOKING_MEETROOM" EntityType="Self.V_BOOKING_MEETROOM" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_BOOKING_MEETROOM].[ObjectSID] AS [ObjectSID], 
+    [V_BOOKING_MEETROOM].[BOOKING_SID] AS [BOOKING_SID], 
+    [V_BOOKING_MEETROOM].[ObjectNM] AS [ObjectNM], 
+    [V_BOOKING_MEETROOM].[ObjectType] AS [ObjectType], 
+    [V_BOOKING_MEETROOM].[EMP_NM] AS [EMP_NM], 
+    [V_BOOKING_MEETROOM].[Subject] AS [Subject], 
+    [V_BOOKING_MEETROOM].[BookingStartTime] AS [BookingStartTime], 
+    [V_BOOKING_MEETROOM].[BookingEndTIme] AS [BookingEndTIme], 
+    [V_BOOKING_MEETROOM].[Mileage] AS [Mileage], 
+    [V_BOOKING_MEETROOM].[MileageLast] AS [MileageLast]
+    FROM [dbo].[V_BOOKING_MEETROOM] AS [V_BOOKING_MEETROOM]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_EMP_ALBUM" EntityType="Self.V_EMP_ALBUM" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_EMP_ALBUM].[EMPLYID] AS [EMPLYID], 
+    [V_EMP_ALBUM].[EMPLYNM] AS [EMPLYNM], 
+    [V_EMP_ALBUM].[DEPID] AS [DEPID], 
+    [V_EMP_ALBUM].[DEPNM] AS [DEPNM], 
+    [V_EMP_ALBUM].[BRTHDT] AS [BRTHDT], 
+    [V_EMP_ALBUM].[C_STA] AS [C_STA], 
+    [V_EMP_ALBUM].[REGDT] AS [REGDT], 
+    [V_EMP_ALBUM].[LLFDT] AS [LLFDT], 
+    [V_EMP_ALBUM].[CName] AS [CName], 
+    [V_EMP_ALBUM].[PhotoUrl] AS [PhotoUrl]
+    FROM [dbo].[V_EMP_ALBUM] AS [V_EMP_ALBUM]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_ERP_ITEM" EntityType="Self.V_ERP_ITEM" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_ERP_ITEM].[ITEM_NO] AS [ITEM_NO], 
+    [V_ERP_ITEM].[ITEM_NM] AS [ITEM_NM], 
+    [V_ERP_ITEM].[ITEM_SP] AS [ITEM_SP], 
+    [V_ERP_ITEM].[ITEM_NO_O] AS [ITEM_NO_O], 
+    [V_ERP_ITEM].[CLAS_NO] AS [CLAS_NO], 
+    [V_ERP_ITEM].[CLAS_NO1] AS [CLAS_NO1], 
+    [V_ERP_ITEM].[UNIT] AS [UNIT]
+    FROM [dbo].[V_ERP_ITEM] AS [V_ERP_ITEM]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_SRVDATAMT" EntityType="Self.V_SRVDATAMT" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_SRVDATAMT].[VCH_TY] AS [VCH_TY], 
+    [V_SRVDATAMT].[VCH_NO] AS [VCH_NO], 
+    [V_SRVDATAMT].[VCH_DT] AS [VCH_DT], 
+    [V_SRVDATAMT].[RCV_MODE] AS [RCV_MODE], 
+    [V_SRVDATAMT].[EMP_NO] AS [EMP_NO], 
+    [V_SRVDATAMT].[PROD_NO] AS [PROD_NO], 
+    [V_SRVDATAMT].[CS_NO] AS [CS_NO], 
+    [V_SRVDATAMT].[PROB_REC] AS [PROB_REC], 
+    [V_SRVDATAMT].[TO_ADDR] AS [TO_ADDR], 
+    [V_SRVDATAMT].[CURRENCY] AS [CURRENCY], 
+    [V_SRVDATAMT].[EXCH_RATE] AS [EXCH_RATE], 
+    [V_SRVDATAMT].[IVC_PAGE] AS [IVC_PAGE], 
+    [V_SRVDATAMT].[TAX_TY] AS [TAX_TY], 
+    [V_SRVDATAMT].[TAX_RT] AS [TAX_RT], 
+    [V_SRVDATAMT].[PART_AMT] AS [PART_AMT], 
+    [V_SRVDATAMT].[MMT_AMT] AS [MMT_AMT], 
+    [V_SRVDATAMT].[PLAN_DT] AS [PLAN_DT], 
+    [V_SRVDATAMT].[REAL_DT] AS [REAL_DT], 
+    [V_SRVDATAMT].[REMK] AS [REMK], 
+    [V_SRVDATAMT].[C_CLS] AS [C_CLS], 
+    [V_SRVDATAMT].[N_PRT] AS [N_PRT], 
+    [V_SRVDATAMT].[C_CFM] AS [C_CFM], 
+    [V_SRVDATAMT].[CFM_DT] AS [CFM_DT], 
+    [V_SRVDATAMT].[OWNER_GRP_NO] AS [OWNER_GRP_NO], 
+    [V_SRVDATAMT].[ADD_DT] AS [ADD_DT], 
+    [V_SRVDATAMT].[CFM_USR_NO] AS [CFM_USR_NO], 
+    [V_SRVDATAMT].[IP_NM] AS [IP_NM], 
+    [V_SRVDATAMT].[CP_NM] AS [CP_NM]
+    FROM [dbo].[V_SRVDATAMT] AS [V_SRVDATAMT]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_SRVPRODMT" EntityType="Self.V_SRVPRODMT" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_SRVPRODMT].[id] AS [id], 
+    [V_SRVPRODMT].[PROD_NO] AS [PROD_NO], 
+    [V_SRVPRODMT].[PROD_TY] AS [PROD_TY], 
+    [V_SRVPRODMT].[ITEM_NO] AS [ITEM_NO], 
+    [V_SRVPRODMT].[ITEM_NM] AS [ITEM_NM]
+    FROM [dbo].[V_SRVPRODMT] AS [V_SRVPRODMT]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR" EntityType="Self.VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR].[ObjectSID] AS [ObjectSID], 
+    [VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR].[BOOKING_SID] AS [BOOKING_SID], 
+    [VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR].[ObjectNM] AS [ObjectNM], 
+    [VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR].[ObjectType] AS [ObjectType], 
+    [VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR].[EMP_NM] AS [EMP_NM], 
+    [VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR].[Subject] AS [Subject], 
+    [VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR].[BookingStartTime] AS [BookingStartTime], 
+    [VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR].[BookingEndTIme] AS [BookingEndTIme], 
+    [VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR].[Mileage] AS [Mileage], 
+    [VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR].[MileageLast] AS [MileageLast]
+    FROM [dbo].[VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR] AS [VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM" EntityType="Self.VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM].[ObjectSID] AS [ObjectSID], 
+    [VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM].[BOOKING_SID] AS [BOOKING_SID], 
+    [VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM].[ObjectNM] AS [ObjectNM], 
+    [VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM].[ObjectType] AS [ObjectType], 
+    [VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM].[EMP_NM] AS [EMP_NM], 
+    [VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM].[Subject] AS [Subject], 
+    [VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM].[BookingStartTime] AS [BookingStartTime], 
+    [VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM].[BookingEndTIme] AS [BookingEndTIme], 
+    [VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM].[Mileage] AS [Mileage]
+    FROM [dbo].[VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM] AS [VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_dbo_SRVPRODDL_1" Association="Self.FK_dbo_SRVPRODDL_1">
+      <End Role="SRVPRODMT" EntitySet="SRVPRODMT" />
+      <End Role="SRVPRODDL" EntitySet="SRVPRODDL" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

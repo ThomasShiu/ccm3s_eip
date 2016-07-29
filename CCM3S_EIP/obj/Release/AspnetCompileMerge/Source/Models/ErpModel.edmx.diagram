@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eb4ff3c82f0546338bd8670a21ebca76" Name="Diagram1" ZoomLevel="92">
+        <EntityTypeShape EntityType="CCM_MainModel.ITEM" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCM_MainModel.ITTIN" Width="1.5" PointX="3.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCM_MainModel.vdaddr" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CCM_MainModel.VENDOR" Width="1.5" PointX="10.375" PointY="5.75" />
+        <EntityTypeShape EntityType="CCM_MainModel.customer" Width="1.5" PointX="0.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

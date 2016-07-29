@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "精湛EIP企業入口網站";
+}
+    <h3>EIP首頁</h3>
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-danger">
+            <div class="panel-heading">會議室/公務車輛/人員動態狀況</div>
+            <div class="panel-body">
+                <div role="tabpanel">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs " role="tablist">
+                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">公務車會議室</a></li>
+                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">外出人員</a></li>
+                        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">差勤人員</a></li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="home">
+                            <div>
+                                @Html.Action("BookingCarView")
+                            </div>
+                            <div>
+                                @Html.Action("BookingMeetingRoomView")
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="profile">
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="messages">差勤人員差勤人員差勤人員差勤人員差勤人員差勤人員</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <div class="col-md-5">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">公佈欄</div>
+                    <div class="panel-body">
+                        [員工公佈欄]:<br />
+                        2016/6/13 - 菜單6/13-6/17<br />
+                        2016/6/13 - 6/20(一)晨會名單<br />
+                        2016/6/8 - 電動車使用注意事項<br />
+                        2016/6/4 - 人事異動公告<br />
+                        2016/6/4 - 人事公告<br />
+                        2016/5/20 - 2016/6月生日名單<br />
+                        2016/3/30 - 公務車清潔維護相關<br />
+                        2016/2/18 - 旅平險投保明細<br />
+                        2015/12/15 - 2016年出勤暨各月重要行事<br />
+                        2015/12/7 - 2016年度行事曆<br />
+                        2015/12/1 - 廠區環境維護及上班秩序規定<br />
+                        2015/12/1 - 廠區代步腳踏車相關規定<br />
+                        2015/10/6 - 公務車加油及點數累積宣導<br />
+                        2015/9/2 - 精湛福委會統編<br />
+                        2015/8/25 - 慈善相關訊息<br />
+                        [訂便當(團購)調查]:<br />
+                        2016/6/14 - 6/14晚餐加班便當<br />
+                        [員工意見調查]:<br />
+                        您尚未回應共有 : ( 0 ) 項<br />
+                        [員工意見反映]:<br />
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+                <div class="panel panel-success">
+                    <div class="panel-heading">工作/資訊</div>
+                    <div class="panel-body">
+                        待執行工作
+
+                        個人資訊
+
+                        項目
+                        統計
+                        到職日期	2016-05-03
+                        任職部門	管理部-資訊課
+                        任職職稱	工程師
+                        簽核主管	林子育
+                        年資 (結算至2016/01/01)	-0.34 年
+                        特休 (天數/時數)	0 天/ 0.00 時
+                        遲到次數 (本年累計)	0 次
+                    </div>
+                </div>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">分享專區</h3>
+                    </div>
+                    <div class="panel-body">
+                        精湛大家族
+                        加入精湛、真湛 LINE群組
+
+                        [最新特約廠商優惠]:
+                        王品餐飲股份有限公司-西提牛排台南仁德中山店
+                        王品餐飲股份有限公司-品田台南安平家樂福店
+                        王品餐飲股份有限公司-西提安平家樂福店
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">教育訓練</h3>
+                    </div>
+                    <div class="panel-body">
+                        無
+                    </div>
+                </div>
+            </div>
+        </div>

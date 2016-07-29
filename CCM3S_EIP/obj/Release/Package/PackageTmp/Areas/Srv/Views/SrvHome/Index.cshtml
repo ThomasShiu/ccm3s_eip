@@ -1,0 +1,121 @@
+﻿@model   PagedList.IPagedList<CCM3S_EIP.Models.V_SRVPRODMT>
+
+@{
+    ViewBag.Title = "售服系統產品主檔";
+}
+
+<h2>售服系統產品主檔</h2>
+
+
+<div class="row small">
+    <div class="col-md-6 text-left small">
+        <form action="@Url.Action("Index","SrvHome")" method="get" class="form-inline">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon">搜尋</div>
+                    <input type="text" class="form-control" id="SearchString" name="SearchString" value="@(ViewBag.CurrentFilter as string)" placeholder="編號、品號、品名">
+                    
+                </div>
+            </div>
+                    @*<div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">Page</div>
+                            @Html.DropDownList("page", (List<SelectListItem>)ViewBag.PageItems, new { @class = "form-control" })
+                        </div>
+                    </div>*@
+                    <button class="btn btn-success" type="submit">送出</button>
+           
+                    @*<a href='~/SRV/Home/Create' class="btn btn-primary" role="button">
+                        <i class="glyphicon glyphicon-pencil"></i> 新增資料
+                    </a>*@
+        </form>
+    </div>
+</div>
+<div class="row small">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new{ page,sortOrder = ViewBag.CurrentSort,currentFilter = ViewBag.CurrentFilter}),
+        new PagedListRenderOptions
+        {
+            DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+            DisplayLinkToLastPage = PagedListDisplayMode.Always,
+            DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+            DisplayLinkToNextPage = PagedListDisplayMode.Always,
+            DisplayLinkToIndividualPages = true,
+            LinkToFirstPageFormat = "<< 第一頁",
+            LinkToPreviousPageFormat = "<前一頁",
+            LinkToNextPageFormat = "後一頁>",
+            LinkToLastPageFormat = "最末頁>>",
+            DisplayPageCountAndCurrentLocation = true,
+            PageCountAndCurrentLocationFormat = "第 {0} 頁 / 共 {1} 頁",
+            DisplayItemSliceAndTotal = true,
+            ItemSliceAndTotalFormat = "項目：{0} ~ {1} , 共 {2} 項"
+        })
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("產品號碼", "Index", new { sortOrder = ViewBag.ProdnoSortParm,
+            currentFilter = ViewBag.CurrentFilter
+       })
+        </th>
+        <th>
+            @Html.ActionLink("型式", "Index", new { sortOrder = ViewBag.TypeSortParm,
+            currentFilter = ViewBag.CurrentFilter
+       })
+        </th>
+        <th>
+            @Html.ActionLink("產品品號", "Index", new { sortOrder = ViewBag.ItemSortParm,
+            currentFilter = ViewBag.CurrentFilter
+       })
+        </th>
+        <th>
+            @Html.ActionLink("品名", "Index", new { sortOrder = ViewBag.ItemNmSortParm,
+           currentFilter = ViewBag.CurrentFilter
+       })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PROD_NO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PROD_TY)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ITEM_NO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ITEM_NM)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.id }) |*@
+                @*@Html.ActionLink("詳細", "DetailsViewModel", new { id = item.id })*@ 
+                @Html.ActionLink("詳細", "DetailsViewModel", new { id = item.id }, new { @class = "btn btn-danger-outline" })
+                @*@Html.ActionLink("Delete", "Delete", new { id = item.id })*@
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="row small">
+   @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }),
+        new PagedListRenderOptions
+        {
+            DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+            DisplayLinkToLastPage = PagedListDisplayMode.Always,
+            DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+            DisplayLinkToNextPage = PagedListDisplayMode.Always,
+            DisplayLinkToIndividualPages = true,
+            LinkToFirstPageFormat = "<< 第一頁",
+            LinkToPreviousPageFormat = "<前一頁",
+            LinkToNextPageFormat = "後一頁>",
+            LinkToLastPageFormat = "最末頁>>",
+            DisplayPageCountAndCurrentLocation = true,
+            PageCountAndCurrentLocationFormat = "第 {0} 頁 / 共 {1} 頁",
+            DisplayItemSliceAndTotal = true,
+            ItemSliceAndTotalFormat = "項目：{0} ~ {1} , 共 {2} 項"
+        })
+</div>

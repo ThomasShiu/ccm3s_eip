@@ -1,0 +1,29 @@
+﻿@model   CCM3S_EIP.Models.PU_ALBUMS
+@{ 
+    Layout = null;
+}
+<h4>主要分類</h4>
+<div class="row ">
+    <div class="col-md-6 col-md-offset-2 imgbox">
+        <div class="col-md-4  ">
+            <a class="fancybox-thumbs"
+               data-fancybox-group="thumb"
+               href="@Url.Content(Model.ImgPath)"
+               data-toggle="tooltip" data-placement="top" 
+               title="@Url.Content(Model.FileName)-@Url.Content(Model.Descript)">
+                <img src="@Url.Content(Model.ImgPath)" class="img-responsive  center-block ">
+            </a>
+        </div>
+        <div class="col-md-8  ">
+            @*<div class="pull-right"><a href="#" class="btn btn-danger btn-sm" role="button"><i class="glyphicon  glyphicon-search"></i></a></div>*@
+            <div class="producttitle">檔名:@Html.DisplayFor(Model => Model.FileName)</div>
+            <div class="productprice">
+                <div class="producttext">機號:@Html.DisplayFor(Model => Model.Prod_no)</div>
+                <div class="producttext">生產日期:@Html.DisplayFor(Model => Model.Pdate)</div>
+                <div class="producttext">描述:@Html.DisplayFor(Model => Model.Descript)</div>
+                <div class="producttext">分類:@Html.DisplayFor(Model => Model.KindType1)</div>
+            </div>
+        </div>
+    </div>
+</div>
+

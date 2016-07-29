@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CCM_MainModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ITEM">
+    <Key>
+      <PropertyRef Name="ITEM_NO" />
+    </Key>
+    <Property Name="ITEM_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ITEM_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="ITEM_SP" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="ITEM_NM_E" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ITEM_SP_E" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ITEM_NO_O" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="C_STA" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="GRAT_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO4" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO5" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO6" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO7" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO8" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO9" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO10" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO11" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO12" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="INV_TY" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="FIN_ITEM_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="UNIT" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="UNIT1" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="UNIT2" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="UNIT3" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="EXCH_RATE1" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="EXCH_RATE2" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="EXCH_RATE3" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="C_AU" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="A_UNIT" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="W_UNIT" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="L_UNIT" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="S_UNIT" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="V_UNIT" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="WEIGHT" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="WEIGHT_DNN" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="LENGTH" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="LENGTH_DNN" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="AREA" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="AREA_DNN" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="VOLUMN" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="VOLUMN_DNN" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="SAFE_QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="ROR_POT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="SUP_POT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="MIN_QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="PCH_QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="ISS_QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="UNIT_QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="FIX_LT" Type="Int32" />
+    <Property Name="LEAD_TIME" Type="Int32" />
+    <Property Name="INSP_LT" Type="Int32" />
+    <Property Name="LOT_QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="C_LT" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="WAHO_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="LOCA_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="VD_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PLINE_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="EMP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="INV_EMP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PUR_EMP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="MOC_EMP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="TIN_CODE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="LLC_BOM" Type="Int32" />
+    <Property Name="LLC_CST" Type="Int32" />
+    <Property Name="C_SOURCE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="C_BONDED" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="C_PHANT" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="C_BCH" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="C_SR" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="C_LOCA" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_ROR" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="C_CYC" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="C_ISS" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="C_INSP" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="VLD_DAY" Type="Int32" />
+    <Property Name="CHK_DAY" Type="Int32" />
+    <Property Name="C_ABC" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="MTR_CST" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="LAB_CST" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="OVH_CST" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="SBC_CST" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="LAB_ADD" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="OVH_ADD" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="SBC_ADD" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="MTR_ADD" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="MTR_RT" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="LAB_RT" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="OVH_RT" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="SBC_RT" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="STD_PCHPRC" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="STD_SALPRC" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="STD_SALEXP" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="SAL_PRC" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="C_TAX" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="PACK_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="C_CTL" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_INV" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="ITEM_DSCP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ITEM_DSCP1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ITEM_DSCP2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ITEM_DSCP3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IMG_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="IMG_NO1" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="IMG_NO2" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="IMG_NO3" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="RT_ITEM_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="RT_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="DOC_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="BAR_CODE" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="EFF_DT" Type="DateTime" Precision="0" />
+    <Property Name="EXP_DT" Type="DateTime" Precision="0" />
+    <Property Name="C_MPS" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_OUT" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="OUT_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="C_OVR" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="OVR_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="QM_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="PINE_DAY" Type="Int32" />
+    <Property Name="PURE_DAY" Type="Int32" />
+    <Property Name="GD_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="SIZE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CTS_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="PO_TY" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="MO_TY" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="C_COST" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="OWNER_USR_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="OWNER_GRP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ADD_DT" Type="DateTime" Precision="0" />
+    <Property Name="MDY_USR_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="MDY_DT" Type="DateTime" Precision="0" />
+    <Property Name="IP_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="CP_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ITTIN">
+    <Key>
+      <PropertyRef Name="DRF_NO" />
+      <PropertyRef Name="CRD_NO" />
+    </Key>
+    <Property Name="DRF_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="CRD_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TIN_DT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ITEM_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="WAHO_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="LOCA_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="ACC_QTY" Type="Decimal" Precision="15" Scale="4" Nullable="false" />
+    <Property Name="TIN_QTY" Type="Decimal" Precision="15" Scale="4" Nullable="false" />
+    <Property Name="ACC_A_QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="TIN_A_QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="EMP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="C_UPD" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="VCH_TY" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="VCH_NO" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="VCH_SR" Type="Int32" />
+    <Property Name="C_BCH" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_LOCA" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="CCM_MainEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ITEM" EntityType="Self.ITEM" />
+    <EntitySet Name="ITTIN" EntityType="Self.ITTIN" />
+    <EntitySet Name="vdaddr" EntityType="CCM_MainModel.vdaddr" />
+    <EntitySet Name="VENDOR" EntityType="CCM_MainModel.VENDOR" />
+    <EntitySet Name="customers" EntityType="CCM_MainModel.customer" />
+  </EntityContainer>
+  <EntityType Name="vdaddr">
+    <Key>
+      <PropertyRef Name="VD_NO" />
+      <PropertyRef Name="SR_NO" />
+    </Key>
+    <Property Name="VD_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="SR_NO" Type="Int32" Nullable="false" />
+    <Property Name="ADDR" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ZNO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="DEPARTMENT" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="CONTACTER" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="TEL_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="TEL_NO2" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="TEL_NO3" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="FAX_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VENDOR">
+    <Key>
+      <PropertyRef Name="VD_NO" />
+    </Key>
+    <Property Name="VD_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="SHORT_NM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="UNIQUE_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="TAX_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="OPEN_DT" Type="DateTime" Precision="0" />
+    <Property Name="FST_DT" Type="DateTime" Precision="0" />
+    <Property Name="LST_DT" Type="DateTime" Precision="0" />
+    <Property Name="CAPITAL" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="EMP_TOT" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="C_ABC" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_DUE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_QLY" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="FULL_NM" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="FULL_NM2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR_OFC" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR_OFC2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR_IVC" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR_IVC2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ZNO_OFC" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ZNO_IVC" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PROPRIETOR" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="CONTACTER" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="CONTACTER2" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="CONTACTER3" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="CURRENCY" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="PRC_CDT" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="PAY_CDT" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="TEL_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="TEL_NO2" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="TEL_NO3" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="FAX_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="E_MAIL" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="WWW" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="AP_ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="AP_BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="SP_ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="SP_BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="NP_ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="NP_BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="PP_ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="PP_BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="EAP_ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="EAP_BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="AP_MM" Type="Int32" />
+    <Property Name="AP_DD" Type="Int32" />
+    <Property Name="NP_MM" Type="Int32" />
+    <Property Name="NP_DD" Type="Int32" />
+    <Property Name="CASH_MM" Type="Int32" />
+    <Property Name="CASH_DD" Type="Int32" />
+    <Property Name="ACC_TY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PAY_TY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="IVC_PAGE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="TAX_TY" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="TAX_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="AREA_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="NATION_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="BANK" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="ACC_NO" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="NOT_TY" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_APF" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="EFF_DT" Type="DateTime" Precision="0" />
+    <Property Name="EXP_DT" Type="DateTime" Precision="0" />
+    <Property Name="BANK_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="DAP_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="PP_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="ID_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="ACC_NM" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="OVD_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="CS_NO" />
+    </Key>
+    <Property Name="CS_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="SHORT_NM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="FULL_NM" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="FULL_NM2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR_IVC" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR_IVC2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR_OFC" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR_OFC2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="TO_ADDR" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="TO_ADDR2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR_DOC" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR_DOC2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ZNO_IVC" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ZNO_OFC" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ZNO_TO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ZNO_DOC" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PROPRIETOR" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="CONTACTER" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="CONTACTER2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="CONTACTER3" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="TEL_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="TEL_NO2" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="TEL_NO3" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="FAX_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="E_MAIL" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="WWW" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="UNIQUE_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="TAX_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="EMP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="DEPM_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="SCHL_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CS_TY_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="SLN_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="NATION_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="AREA_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PRC_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PRC_NO1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PRC_NO2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PRC_NO3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="OPEN_DT" Type="DateTime" Precision="0" />
+    <Property Name="FST_DT" Type="DateTime" Precision="0" />
+    <Property Name="LST_DT" Type="DateTime" Precision="0" />
+    <Property Name="CAPITAL" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="EMP_TOT" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="C_SAL" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_CRD" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="AR_CS_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="AR_ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="AR_BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="NR_ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="NR_BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="PR_ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="PR_BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="EAR_ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="EAR_BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="CURRENCY" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="TAX_TY" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="TAX_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="IVC_PAGE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="PRC_CDT" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="PAY_CDT" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="C_CTL" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="MAX_CRD" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="OVER_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="AR_DAY" Type="Int32" />
+    <Property Name="NR_DAY" Type="Int32" />
+    <Property Name="CASH_DAY" Type="Int32" />
+    <Property Name="BRAND" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="DESTINATION" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="SEA_PORT" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="SEA_CORP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="AIR_PORT" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="AIR_CORP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="SHIP_CORP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="AGT_CORP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLR_CORP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="INSP_CORP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="COMS_RATE" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="INSU_RATE" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="PRICING_SEQ" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="C_PRICING" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="DISC_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="C_VCH" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="ACC_TY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="RCV_TY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="NOT_TY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="SHIP_TY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="BANK" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="BANK2" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="BANK3" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="ACC_NO" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ACC_NO2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ACC_NO3" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="C_APF" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EFF_DT" Type="DateTime" Precision="0" />
+    <Property Name="EXP_DT" Type="DateTime" Precision="0" />
+    <Property Name="OWNER_USR_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="OWNER_GRP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ADD_DT" Type="DateTime" Precision="0" />
+    <Property Name="IP_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="CP_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+  </EntityType>
+</Schema>

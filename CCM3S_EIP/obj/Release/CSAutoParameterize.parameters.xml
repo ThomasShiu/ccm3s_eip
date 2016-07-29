@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="NorthwindEntities-Web.config Connection String" description="NorthwindEntities 應用程式在 web.config 中用來存取資料庫的連接字串。" defaultValue="metadata=res://*/Models.NorthwindModel.csdl|res://*/Models.NorthwindModel.ssdl|res://*/Models.NorthwindModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=TIPERP;initial catalog=Northwind;user id=sa;password=6937937;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Git_Source\\CCM3S_EIP\\CCM3S_EIP\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='NorthwindEntities']/@connectionString" />
+  </parameter>
+  <parameter name="EIP01Entities-Web.config Connection String" description="EIP01Entities 應用程式在 web.config 中用來存取資料庫的連接字串。" defaultValue="metadata=res://*/Models.EipModel.csdl|res://*/Models.EipModel.ssdl|res://*/Models.EipModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=192.168.100.11;initial catalog=EIP01;persist security info=True;user id=sa;password=6937937;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Git_Source\\CCM3S_EIP\\CCM3S_EIP\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='EIP01Entities']/@connectionString" />
+  </parameter>
+  <parameter name="CCM_MainEntities-Web.config Connection String" description="CCM_MainEntities 應用程式在 web.config 中用來存取資料庫的連接字串。" defaultValue="metadata=res://*/Models.ErpModel.csdl|res://*/Models.ErpModel.ssdl|res://*/Models.ErpModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=192.168.100.19;initial catalog=CCM_Main;persist security info=True;user id=sa;password=6937937;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Git_Source\\CCM3S_EIP\\CCM3S_EIP\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CCM_MainEntities']/@connectionString" />
+  </parameter>
+</parameters>

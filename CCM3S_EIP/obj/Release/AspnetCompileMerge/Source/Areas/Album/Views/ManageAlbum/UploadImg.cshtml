@@ -1,0 +1,115 @@
+﻿@model CCM3S_EIP.Areas.Album.Models.UploadItemViewModel
+@{
+    Layout = "~/Views/Shared/_AlbumToolBar.cshtml";
+    ViewBag.Title = "上傳主分類圖檔";
+}
+@section styles{
+<!-- 使用jQuery UI Widgets : Datepicker -->
+<link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+
+}
+
+<h4>上傳主分類照片</h4>
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 imgbox">
+        @using (Html.BeginForm("UploadImg", "ManageAlbum", FormMethod.Post, new { enctype = "multipart/form-data", name = "myForm" }))
+        {@Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div >
+                
+                 <div class="form-group ">
+                        @Html.LabelFor(model => model.pu_album.FileName, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                        <div class="col-md-10 ">
+                            @Html.EditorFor(model => model.pu_album.FileName, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                            @Html.ValidationMessageFor(model => model.pu_album.FileName, "", new { @class = "text-danger" })
+                        </div>
+                 </div>
+
+                <div class="form-group ">
+                    @Html.LabelFor(model => model.pu_album.Prod_no, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="col-md-10 ">
+                        @Html.EditorFor(model => model.pu_album.Prod_no, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                        @Html.ValidationMessageFor(model => model.pu_album.Prod_no, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    @Html.LabelFor(model => model.pu_album.Pdate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10 ">
+                      
+                        @Html.EditorFor(model => model.pu_album.Pdate, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                        @Html.ValidationMessageFor(model => model.pu_album.Pdate, "", new { @class = "text-danger" })
+                    </div>
+                    
+                </div>
+
+                <div class="form-group formstyle">
+                    @Html.LabelFor(model => model.pu_album.Descript, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.pu_album.Descript, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.pu_album.Descript, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group formstyle">
+                    @Html.LabelFor(model => model.pu_album.KindType1, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.pu_album.KindType1, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.pu_album.KindType1, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+
+        <!--紀錄是要上傳照片還是資料存檔-->
+            <input type="hidden" value="" name="act" />
+        <!--選擇檔案後，表單自動提交-->
+            <input type="file" value="選擇大頭照" name="myFile" onchange="uploadPhoto();" />
+            <table border="1">
+
+                @for (int i = 0; i < Model.PhotoFileNames.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            <!--預覽圖-->
+                            <img src="@(Url.Content("~/EIPContent/Content/PublicShare/VibrationPlate/")+Model.PhotoFileNames[i])" width="100" />
+                            &nbsp;
+                            @Html.HiddenFor(m => m.PhotoFileNames[i])
+                        </td>
+                    </tr>
+                }
+            </table>
+
+            <hr /><!--我是分隔線-->
+            <input class="btn btn-success" type="submit" value="提交" onclick="postForm();" />
+
+
+        }
+    </div>
+</div>
+
+@section scripts
+{
+
+        <!--加入一些自己手寫的簡單jQuery語法-->
+        <script type="text/javascript">
+            //上傳照片
+            function uploadPhoto() {
+                $("input[name='act']").attr("value", "upload");
+                //表單提交
+                $("form[name='myForm']").submit();
+            }
+            //提交表單
+            function postForm() {
+                //更改flag
+                $("input[name='act']").attr("value", "post");
+                //表單提交
+                $("form[name='myForm']").submit();
+            }
+        </script>
+    }

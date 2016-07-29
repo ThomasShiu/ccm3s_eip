@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EIP01ModelStoreContainer" CdmEntityContainer="EIP01Entities">
+    <EntitySetMapping Name="VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR">
+      <EntityTypeMapping TypeName="EIP01Model.VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR">
+        <MappingFragment StoreEntitySet="VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR">
+          <ScalarProperty Name="ObjectSID" ColumnName="ObjectSID" />
+          <ScalarProperty Name="BOOKING_SID" ColumnName="BOOKING_SID" />
+          <ScalarProperty Name="ObjectNM" ColumnName="ObjectNM" />
+          <ScalarProperty Name="ObjectType" ColumnName="ObjectType" />
+          <ScalarProperty Name="EMP_NM" ColumnName="EMP_NM" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="BookingStartTime" ColumnName="BookingStartTime" />
+          <ScalarProperty Name="BookingEndTIme" ColumnName="BookingEndTIme" />
+          <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+          <ScalarProperty Name="MileageLast" ColumnName="MileageLast" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DropWorkflowInbox" FunctionName="EIP01Model.Store.DropWorkflowInbox" />
+    <FunctionImportMapping FunctionImportName="DropWorkflowProcess" FunctionName="EIP01Model.Store.DropWorkflowProcess" />
+    <FunctionImportMapping FunctionImportName="DropWorkflowProcesses" FunctionName="EIP01Model.Store.DropWorkflowProcesses" />
+    <FunctionImportMapping FunctionImportName="ERP_Mo_ProgressCheck" FunctionName="EIP01Model.Store.ERP_Mo_ProgressCheck" />
+    <FunctionImportMapping FunctionImportName="SearchAllTables" FunctionName="EIP01Model.Store.SearchAllTables">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EIP01Model.SearchAllTables_Result">
+          <ScalarProperty Name="ColumnName" ColumnName="ColumnName" />
+          <ScalarProperty Name="ColumnValue" ColumnName="ColumnValue" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spWorkflowProcessResetRunningStatus" FunctionName="EIP01Model.Store.spWorkflowProcessResetRunningStatus" />
+    <EntitySetMapping Name="PDM_CONNECT_COUNT">
+      <EntityTypeMapping TypeName="EIP01Model.PDM_CONNECT_COUNT">
+        <MappingFragment StoreEntitySet="PDM_CONNECT_COUNT">
+          <ScalarProperty Name="ACCOUNT_CNT" ColumnName="ACCOUNT_CNT" />
+          <ScalarProperty Name="ON_LINE_CNT" ColumnName="ON_LINE_CNT" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IP_Address">
+      <EntityTypeMapping TypeName="EIP01Model.IP_Address">
+        <MappingFragment StoreEntitySet="IP_Address">
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="antivirus" ColumnName="antivirus" />
+          <ScalarProperty Name="group" ColumnName="group" />
+          <ScalarProperty Name="os" ColumnName="os" />
+          <ScalarProperty Name="device" ColumnName="device" />
+          <ScalarProperty Name="user" ColumnName="user" />
+          <ScalarProperty Name="dept" ColumnName="dept" />
+          <ScalarProperty Name="mac_addr" ColumnName="mac_addr" />
+          <ScalarProperty Name="ip_addr" ColumnName="ip_addr" />
+          <ScalarProperty Name="sn" ColumnName="sn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActionLog">
+      <EntityTypeMapping TypeName="EIP01Model.ActionLog">
+        <MappingFragment StoreEntitySet="ActionLog">
+          <ScalarProperty Name="RequestTime" ColumnName="RequestTime" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="MobleDevices" ColumnName="MobleDevices" />
+          <ScalarProperty Name="Method" ColumnName="Method" />
+          <ScalarProperty Name="Destination" ColumnName="Destination" />
+          <ScalarProperty Name="Refer" ColumnName="Refer" />
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+          <ScalarProperty Name="LogId" ColumnName="LogId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_BOOKING_CAR">
+      <EntityTypeMapping TypeName="EIP01Model.V_BOOKING_CAR">
+        <MappingFragment StoreEntitySet="V_BOOKING_CAR">
+          <ScalarProperty Name="MileageLast" ColumnName="MileageLast" />
+          <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+          <ScalarProperty Name="BookingEndTIme" ColumnName="BookingEndTIme" />
+          <ScalarProperty Name="BookingStartTime" ColumnName="BookingStartTime" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="EMP_NM" ColumnName="EMP_NM" />
+          <ScalarProperty Name="ObjectType" ColumnName="ObjectType" />
+          <ScalarProperty Name="ObjectNM" ColumnName="ObjectNM" />
+          <ScalarProperty Name="BOOKING_SID" ColumnName="BOOKING_SID" />
+          <ScalarProperty Name="ObjectSID" ColumnName="ObjectSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_BOOKING_MEETROOM">
+      <EntityTypeMapping TypeName="EIP01Model.V_BOOKING_MEETROOM">
+        <MappingFragment StoreEntitySet="V_BOOKING_MEETROOM">
+          <ScalarProperty Name="MileageLast" ColumnName="MileageLast" />
+          <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+          <ScalarProperty Name="BookingEndTIme" ColumnName="BookingEndTIme" />
+          <ScalarProperty Name="BookingStartTime" ColumnName="BookingStartTime" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="EMP_NM" ColumnName="EMP_NM" />
+          <ScalarProperty Name="ObjectType" ColumnName="ObjectType" />
+          <ScalarProperty Name="ObjectNM" ColumnName="ObjectNM" />
+          <ScalarProperty Name="BOOKING_SID" ColumnName="BOOKING_SID" />
+          <ScalarProperty Name="ObjectSID" ColumnName="ObjectSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM">
+      <EntityTypeMapping TypeName="EIP01Model.VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM">
+        <MappingFragment StoreEntitySet="VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM">
+          <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+          <ScalarProperty Name="BookingEndTIme" ColumnName="BookingEndTIme" />
+          <ScalarProperty Name="BookingStartTime" ColumnName="BookingStartTime" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="EMP_NM" ColumnName="EMP_NM" />
+          <ScalarProperty Name="ObjectType" ColumnName="ObjectType" />
+          <ScalarProperty Name="ObjectNM" ColumnName="ObjectNM" />
+          <ScalarProperty Name="BOOKING_SID" ColumnName="BOOKING_SID" />
+          <ScalarProperty Name="ObjectSID" ColumnName="ObjectSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_ERP_ITEM">
+      <EntityTypeMapping TypeName="EIP01Model.V_ERP_ITEM">
+        <MappingFragment StoreEntitySet="V_ERP_ITEM">
+          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+          <ScalarProperty Name="CLAS_NO1" ColumnName="CLAS_NO1" />
+          <ScalarProperty Name="CLAS_NO" ColumnName="CLAS_NO" />
+          <ScalarProperty Name="ITEM_NO_O" ColumnName="ITEM_NO_O" />
+          <ScalarProperty Name="ITEM_SP" ColumnName="ITEM_SP" />
+          <ScalarProperty Name="ITEM_NM" ColumnName="ITEM_NM" />
+          <ScalarProperty Name="ITEM_NO" ColumnName="ITEM_NO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SRVPRODDL">
+      <EntityTypeMapping TypeName="EIP01Model.SRVPRODDL">
+        <MappingFragment StoreEntitySet="SRVPRODDL">
+          <ScalarProperty Name="MT_id" ColumnName="MT_id" />
+          <ScalarProperty Name="DSCP_3" ColumnName="DSCP_3" />
+          <ScalarProperty Name="DSCP_2" ColumnName="DSCP_2" />
+          <ScalarProperty Name="DSCP_1" ColumnName="DSCP_1" />
+          <ScalarProperty Name="ENTRY" ColumnName="ENTRY" />
+          <ScalarProperty Name="PROD_SR" ColumnName="PROD_SR" />
+          <ScalarProperty Name="PROD_NO" ColumnName="PROD_NO" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SRVPRODMT">
+      <EntityTypeMapping TypeName="EIP01Model.SRVPRODMT">
+        <MappingFragment StoreEntitySet="SRVPRODMT">
+          <ScalarProperty Name="CP_NM" ColumnName="CP_NM" />
+          <ScalarProperty Name="IP_NM" ColumnName="IP_NM" />
+          <ScalarProperty Name="ADD_DT" ColumnName="ADD_DT" />
+          <ScalarProperty Name="OWNER_GRP_NO" ColumnName="OWNER_GRP_NO" />
+          <ScalarProperty Name="OWNER_USR_NO" ColumnName="OWNER_USR_NO" />
+          <ScalarProperty Name="QT_SR" ColumnName="QT_SR" />
+          <ScalarProperty Name="QT_NO" ColumnName="QT_NO" />
+          <ScalarProperty Name="QT_TY" ColumnName="QT_TY" />
+          <ScalarProperty Name="CS_VCH_NO" ColumnName="CS_VCH_NO" />
+          <ScalarProperty Name="CO_SR" ColumnName="CO_SR" />
+          <ScalarProperty Name="CO_NO" ColumnName="CO_NO" />
+          <ScalarProperty Name="CO_TY" ColumnName="CO_TY" />
+          <ScalarProperty Name="REMK" ColumnName="REMK" />
+          <ScalarProperty Name="M_ITEM_GUAR_DT" ColumnName="M_ITEM_GUAR_DT" />
+          <ScalarProperty Name="M_ITEM_GUAR_MM" ColumnName="M_ITEM_GUAR_MM" />
+          <ScalarProperty Name="PROD_GUAR_DT" ColumnName="PROD_GUAR_DT" />
+          <ScalarProperty Name="PROD_GUAR_MM" ColumnName="PROD_GUAR_MM" />
+          <ScalarProperty Name="TO_ADDR" ColumnName="TO_ADDR" />
+          <ScalarProperty Name="CS_NO" ColumnName="CS_NO" />
+          <ScalarProperty Name="FA_NO" ColumnName="FA_NO" />
+          <ScalarProperty Name="SO_CS_NO" ColumnName="SO_CS_NO" />
+          <ScalarProperty Name="SO_SR" ColumnName="SO_SR" />
+          <ScalarProperty Name="SO_NO" ColumnName="SO_NO" />
+          <ScalarProperty Name="SO_TY" ColumnName="SO_TY" />
+          <ScalarProperty Name="SO_DT" ColumnName="SO_DT" />
+          <ScalarProperty Name="M_ITEM_ID" ColumnName="M_ITEM_ID" />
+          <ScalarProperty Name="M_ITEM_NO" ColumnName="M_ITEM_NO" />
+          <ScalarProperty Name="ITEM_NO" ColumnName="ITEM_NO" />
+          <ScalarProperty Name="PROD_TY" ColumnName="PROD_TY" />
+          <ScalarProperty Name="PROD_NO" ColumnName="PROD_NO" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_SRVPRODMT">
+      <EntityTypeMapping TypeName="EIP01Model.V_SRVPRODMT">
+        <MappingFragment StoreEntitySet="V_SRVPRODMT">
+          <ScalarProperty Name="ITEM_NM" ColumnName="ITEM_NM" />
+          <ScalarProperty Name="ITEM_NO" ColumnName="ITEM_NO" />
+          <ScalarProperty Name="PROD_TY" ColumnName="PROD_TY" />
+          <ScalarProperty Name="PROD_NO" ColumnName="PROD_NO" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_SRVDATAMT">
+      <EntityTypeMapping TypeName="EIP01Model.V_SRVDATAMT">
+        <MappingFragment StoreEntitySet="V_SRVDATAMT">
+          <ScalarProperty Name="CP_NM" ColumnName="CP_NM" />
+          <ScalarProperty Name="IP_NM" ColumnName="IP_NM" />
+          <ScalarProperty Name="CFM_USR_NO" ColumnName="CFM_USR_NO" />
+          <ScalarProperty Name="ADD_DT" ColumnName="ADD_DT" />
+          <ScalarProperty Name="OWNER_GRP_NO" ColumnName="OWNER_GRP_NO" />
+          <ScalarProperty Name="CFM_DT" ColumnName="CFM_DT" />
+          <ScalarProperty Name="C_CFM" ColumnName="C_CFM" />
+          <ScalarProperty Name="N_PRT" ColumnName="N_PRT" />
+          <ScalarProperty Name="C_CLS" ColumnName="C_CLS" />
+          <ScalarProperty Name="REMK" ColumnName="REMK" />
+          <ScalarProperty Name="REAL_DT" ColumnName="REAL_DT" />
+          <ScalarProperty Name="PLAN_DT" ColumnName="PLAN_DT" />
+          <ScalarProperty Name="MMT_AMT" ColumnName="MMT_AMT" />
+          <ScalarProperty Name="PART_AMT" ColumnName="PART_AMT" />
+          <ScalarProperty Name="TAX_RT" ColumnName="TAX_RT" />
+          <ScalarProperty Name="TAX_TY" ColumnName="TAX_TY" />
+          <ScalarProperty Name="IVC_PAGE" ColumnName="IVC_PAGE" />
+          <ScalarProperty Name="EXCH_RATE" ColumnName="EXCH_RATE" />
+          <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
+          <ScalarProperty Name="TO_ADDR" ColumnName="TO_ADDR" />
+          <ScalarProperty Name="PROB_REC" ColumnName="PROB_REC" />
+          <ScalarProperty Name="CS_NO" ColumnName="CS_NO" />
+          <ScalarProperty Name="PROD_NO" ColumnName="PROD_NO" />
+          <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
+          <ScalarProperty Name="RCV_MODE" ColumnName="RCV_MODE" />
+          <ScalarProperty Name="VCH_DT" ColumnName="VCH_DT" />
+          <ScalarProperty Name="VCH_NO" ColumnName="VCH_NO" />
+          <ScalarProperty Name="VCH_TY" ColumnName="VCH_TY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BU_GUESTBOOK">
+      <EntityTypeMapping TypeName="EIP01Model.BU_GUESTBOOK">
+        <MappingFragment StoreEntitySet="BU_GUESTBOOK">
+          <ScalarProperty Name="ReplyTime" ColumnName="ReplyTime" />
+          <ScalarProperty Name="Reply" ColumnName="Reply" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_EMP_ALBUM">
+      <EntityTypeMapping TypeName="EIP01Model.V_EMP_ALBUM">
+        <MappingFragment StoreEntitySet="V_EMP_ALBUM">
+          <ScalarProperty Name="BRTHDT" ColumnName="BRTHDT" />
+          <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+          <ScalarProperty Name="CName" ColumnName="CName" />
+          <ScalarProperty Name="LLFDT" ColumnName="LLFDT" />
+          <ScalarProperty Name="REGDT" ColumnName="REGDT" />
+          <ScalarProperty Name="C_STA" ColumnName="C_STA" />
+          <ScalarProperty Name="DEPNM" ColumnName="DEPNM" />
+          <ScalarProperty Name="DEPID" ColumnName="DEPID" />
+          <ScalarProperty Name="EMPLYNM" ColumnName="EMPLYNM" />
+          <ScalarProperty Name="EMPLYID" ColumnName="EMPLYID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PU_ALBUMS">
+      <EntityTypeMapping TypeName="EIP01Model.PU_ALBUMS">
+        <MappingFragment StoreEntitySet="PU_ALBUMS">
+          <ScalarProperty Name="Pdate" ColumnName="Pdate" />
+          <ScalarProperty Name="Prod_no" ColumnName="Prod_no" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="CreateEmp" ColumnName="CreateEmp" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="KindType2" ColumnName="KindType2" />
+          <ScalarProperty Name="KindType1" ColumnName="KindType1" />
+          <ScalarProperty Name="ImgPath" ColumnName="ImgPath" />
+          <ScalarProperty Name="Descript" ColumnName="Descript" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="childId" ColumnName="childId" />
+          <ScalarProperty Name="parentId" ColumnName="parentId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

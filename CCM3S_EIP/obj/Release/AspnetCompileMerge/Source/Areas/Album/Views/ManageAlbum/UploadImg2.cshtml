@@ -1,0 +1,286 @@
+﻿@model CCM3S_EIP.Areas.Album.Models.UploadItemViewModel
+@{
+    Layout = "~/Views/Shared/_AlbumToolBar.cshtml";
+    ViewBag.Title = "上傳次分類圖檔";
+}
+@section styles{
+    <link href="~/Content/shopitem.css" rel="stylesheet" />
+    <link href="~/Content/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+    <link href="~/Scripts/fancyBox/source/jquery.fancybox.css" rel="stylesheet" />
+    <!-- Add Thumbnail helper (this is optional) -->
+    <link href="~/Scripts/fancyBox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" rel="stylesheet" />
+    <style type="text/css">
+        .fancybox-custom .fancybox-skin {
+            box-shadow: 0 0 50px #222;
+        }
+    </style>
+
+}
+
+
+@*載入主要分類圖片*@
+<div class="col-lg-12">
+    @Html.Action("ItemMaster")
+</div>
+
+<h4>上傳明細圖檔</h4>
+<div class="row">
+    <div class="col-md-6 col-md-offset-2">
+        @using (Html.BeginForm("UploadImg2", "ManageAlbum", FormMethod.Post, new { enctype = "multipart/form-data", name = "myForm" }))
+        {
+            <div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.pu_album.FileName, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.pu_album.FileName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.pu_album.FileName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.pu_album.Descript, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.pu_album.Descript, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.pu_album.Descript, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.pu_album.KindType1, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.pu_album.KindType1, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.pu_album.KindType1, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+           <div class="row"></div>
+        <!--紀錄是要上傳照片還是資料存檔-->
+            <input type="hidden" value="" name="act" />
+        <!--選擇檔案後，表單自動提交-->
+            <input type="file" value="選擇大頭照" name="myFile" onchange="uploadPhoto();" />
+            <table border="1">
+
+                @for (int i = 0; i < Model.PhotoFileNames.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            <!--預覽圖-->
+                            <img src="@(Url.Content("~/EIPContent/Content/PublicShare/VibrationPlate/")+Model.PhotoFileNames[i])" width="100" />
+                            &nbsp;
+                            @Html.HiddenFor(m => m.PhotoFileNames[i])
+                        </td>
+                    </tr>
+                }
+            </table>
+
+            <hr /><!--我是分隔線-->
+            <input type="submit" value="提交" onclick="postForm();" class="btn btn-info"/>
+            
+        }
+    </div>
+</div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/jqueryval")
+ @section scripts
+{
+        <!--加入一些自己手寫的簡單jQuery語法-->
+        <script type="text/javascript">
+            //上傳照片
+            function uploadPhoto() {
+                $("input[name='act']").attr("value", "upload");
+                //表單提交
+                $("form[name='myForm']").submit();
+            }
+            //提交表單
+            function postForm() {
+                //更改flag
+                $("input[name='act']").attr("value", "post");
+            }
+        </script>
+
+
+    <script src="~/Scripts/jquery.bootstrap-touchspin.min.js"></script>
+
+    <script src="~/Scripts/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script src="~/Scripts/fancyBox/source/jquery.fancybox.js"></script>
+    <script src="~/Scripts/fancyBox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+    <script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(238,238,238,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			/*
+			 *  Open manually
+			 */
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+
+
+		});
+    </script>
+
+}

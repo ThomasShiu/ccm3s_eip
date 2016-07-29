@@ -1,0 +1,98 @@
+﻿@model CCM3S_EIP.Models.IP_Address
+
+@*model CCM3S_EIP.Areas.MIS.Models.IP_Address*@
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>IP分配表</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>刪除</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ip_addr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ip_addr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mac_addr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mac_addr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dept)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dept)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.device)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.device)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.os)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.os)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.group)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.group)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.antivirus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.antivirus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.remark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.remark)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a class="btn btn-success" href="javascript:void(0);" onclick="history.go(-1);" role="button">上一頁</a>
+        </div>
+    }
+</div>

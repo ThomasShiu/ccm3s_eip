@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EIP01Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR">
+    <Key>
+      <PropertyRef Name="ObjectSID" />
+    </Key>
+    <Property Name="ObjectSID" Type="Int64" Nullable="false" />
+    <Property Name="BOOKING_SID" Type="Int64" />
+    <Property Name="ObjectNM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="EMP_NM" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BookingStartTime" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="BookingEndTIme" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="Mileage" Type="Int32" />
+    <Property Name="MileageLast" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="EIP01Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR" EntityType="Self.VIEW_PO_PUBLIC_OBJECT_BOOKING_CAR" />
+    <FunctionImport Name="DropWorkflowInbox">
+      <Parameter Name="processId" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="DropWorkflowProcess">
+      <Parameter Name="id" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="DropWorkflowProcesses" />
+    <FunctionImport Name="ERP_Mo_ProgressCheck">
+      <Parameter Name="ITEM_NO" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SearchAllTables" ReturnType="Collection(EIP01Model.SearchAllTables_Result)">
+      <Parameter Name="SearchStr" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spWorkflowProcessResetRunningStatus" />
+    <EntitySet Name="PDM_CONNECT_COUNT" EntityType="EIP01Model.PDM_CONNECT_COUNT" />
+    <EntitySet Name="IP_Address" EntityType="EIP01Model.IP_Address" />
+    <EntitySet Name="ActionLog" EntityType="EIP01Model.ActionLog" />
+    <EntitySet Name="V_BOOKING_CAR" EntityType="EIP01Model.V_BOOKING_CAR" />
+    <EntitySet Name="V_BOOKING_MEETROOM" EntityType="EIP01Model.V_BOOKING_MEETROOM" />
+    <EntitySet Name="VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM" EntityType="EIP01Model.VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM" />
+    <EntitySet Name="V_ERP_ITEM" EntityType="EIP01Model.V_ERP_ITEM" />
+    <EntitySet Name="SRVPRODDL" EntityType="EIP01Model.SRVPRODDL" />
+    <EntitySet Name="SRVPRODMT" EntityType="EIP01Model.SRVPRODMT" />
+    <AssociationSet Name="FK_dbo_SRVPRODDL_1" Association="EIP01Model.FK_dbo_SRVPRODDL_1">
+      <End Role="SRVPRODMT" EntitySet="SRVPRODMT" />
+      <End Role="SRVPRODDL" EntitySet="SRVPRODDL" />
+    </AssociationSet>
+    <EntitySet Name="V_SRVPRODMT" EntityType="EIP01Model.V_SRVPRODMT" />
+    <EntitySet Name="V_SRVDATAMT" EntityType="EIP01Model.V_SRVDATAMT" />
+    <EntitySet Name="BU_GUESTBOOK" EntityType="EIP01Model.BU_GUESTBOOK" />
+    <EntitySet Name="V_EMP_ALBUM" EntityType="EIP01Model.V_EMP_ALBUM" />
+    <EntitySet Name="PU_ALBUMS" EntityType="EIP01Model.PU_ALBUMS" />
+  </EntityContainer>
+  <ComplexType Name="SearchAllTables_Result">
+    <Property Type="String" Name="ColumnName" Nullable="true" MaxLength="370" />
+    <Property Type="String" Name="ColumnValue" Nullable="true" MaxLength="3630" />
+  </ComplexType>
+  <EntityType Name="PDM_CONNECT_COUNT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CREATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ON_LINE_CNT" Type="Int32" />
+    <Property Name="ACCOUNT_CNT" Type="Int32" />
+  </EntityType>
+  <EntityType Name="IP_Address">
+    <Key>
+      <PropertyRef Name="sn" />
+    </Key>
+    <Property Name="sn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ip_addr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mac_addr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dept" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="device" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="os" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="antivirus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ActionLog">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Operator" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Refer" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Destination" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Method" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="MobleDevices" Type="Boolean" Nullable="false" />
+    <Property Name="IPAddress" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RequestTime" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="V_BOOKING_CAR">
+    <Key>
+      <PropertyRef Name="ObjectSID" />
+    </Key>
+    <Property Name="ObjectSID" Type="Int64" Nullable="false" />
+    <Property Name="BOOKING_SID" Type="Int64" />
+    <Property Name="ObjectNM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="EMP_NM" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BookingStartTime" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="BookingEndTIme" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="Mileage" Type="Int32" />
+    <Property Name="MileageLast" Type="Int32" />
+  </EntityType>
+  <EntityType Name="V_BOOKING_MEETROOM">
+    <Key>
+      <PropertyRef Name="ObjectSID" />
+    </Key>
+    <Property Name="ObjectSID" Type="Int64" Nullable="false" />
+    <Property Name="BOOKING_SID" Type="Int64" />
+    <Property Name="ObjectNM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="EMP_NM" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BookingStartTime" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="BookingEndTIme" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="Mileage" Type="Int32" />
+    <Property Name="MileageLast" Type="Int32" />
+  </EntityType>
+  <EntityType Name="VIEW_PO_PUBLIC_OBJECT_BOOKING_MEETINGROOM">
+    <Key>
+      <PropertyRef Name="ObjectSID" />
+    </Key>
+    <Property Name="ObjectSID" Type="Int64" Nullable="false" />
+    <Property Name="BOOKING_SID" Type="Int64" />
+    <Property Name="ObjectNM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="EMP_NM" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BookingStartTime" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="BookingEndTIme" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="Mileage" Type="Int32" />
+  </EntityType>
+  <EntityType Name="V_ERP_ITEM">
+    <Key>
+      <PropertyRef Name="ITEM_NO" />
+      <PropertyRef Name="UNIT" />
+    </Key>
+    <Property Name="ITEM_NO" Type="String" Nullable="false" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="ITEM_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="ITEM_SP" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="ITEM_NO_O" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="UNIT" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SRVPRODDL">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PROD_NO" Type="String" Nullable="false" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="PROD_SR" Type="Int32" Nullable="false" />
+    <Property Name="ENTRY" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="DSCP_1" Type="String" MaxLength="60" FixedLength="true" Unicode="true" />
+    <Property Name="DSCP_2" Type="String" MaxLength="60" FixedLength="true" Unicode="true" />
+    <Property Name="DSCP_3" Type="String" MaxLength="60" FixedLength="true" Unicode="true" />
+    <Property Name="MT_id" Type="Int32" />
+    <NavigationProperty Name="SRVPRODMT" Relationship="EIP01Model.FK_dbo_SRVPRODDL_1" FromRole="SRVPRODDL" ToRole="SRVPRODMT" />
+  </EntityType>
+  <EntityType Name="SRVPRODMT">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PROD_NO" Type="String" Nullable="false" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="PROD_TY" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="ITEM_NO" Type="String" Nullable="false" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="M_ITEM_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="M_ITEM_ID" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="SO_DT" Type="DateTime" Precision="3" />
+    <Property Name="SO_TY" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="SO_NO" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="SO_SR" Type="Int32" />
+    <Property Name="SO_CS_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="FA_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CS_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="TO_ADDR" Type="String" MaxLength="80" FixedLength="true" Unicode="true" />
+    <Property Name="PROD_GUAR_MM" Type="Int32" Nullable="false" />
+    <Property Name="PROD_GUAR_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="M_ITEM_GUAR_MM" Type="Int32" Nullable="false" />
+    <Property Name="M_ITEM_GUAR_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="REMK" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="CO_TY" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="CO_NO" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="CO_SR" Type="Int32" />
+    <Property Name="CS_VCH_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="QT_TY" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="QT_NO" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="QT_SR" Type="Int32" />
+    <Property Name="OWNER_USR_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="OWNER_GRP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ADD_DT" Type="DateTime" Precision="3" />
+    <Property Name="IP_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="CP_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="SRVPRODDL" Relationship="EIP01Model.FK_dbo_SRVPRODDL_1" FromRole="SRVPRODMT" ToRole="SRVPRODDL" />
+  </EntityType>
+  <Association Name="FK_dbo_SRVPRODDL_1">
+    <End Type="EIP01Model.SRVPRODMT" Role="SRVPRODMT" Multiplicity="0..1" />
+    <End Type="EIP01Model.SRVPRODDL" Role="SRVPRODDL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SRVPRODMT">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SRVPRODDL">
+        <PropertyRef Name="MT_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="V_SRVPRODMT">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="PROD_NO" />
+      <PropertyRef Name="ITEM_NO" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PROD_NO" Type="String" Nullable="false" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="PROD_TY" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="ITEM_NO" Type="String" Nullable="false" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="ITEM_NM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="V_SRVDATAMT">
+    <Key>
+      <PropertyRef Name="VCH_TY" />
+      <PropertyRef Name="VCH_NO" />
+    </Key>
+    <Property Name="VCH_TY" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="VCH_NO" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="VCH_DT" Type="DateTime" Precision="3" />
+    <Property Name="RCV_MODE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="EMP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PROD_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="CS_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PROB_REC" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="TO_ADDR" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="CURRENCY" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="EXCH_RATE" Type="Decimal" Precision="12" Scale="6" />
+    <Property Name="IVC_PAGE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="TAX_TY" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="TAX_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="PART_AMT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="MMT_AMT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="PLAN_DT" Type="DateTime" Precision="3" />
+    <Property Name="REAL_DT" Type="DateTime" Precision="3" />
+    <Property Name="REMK" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="C_CLS" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="N_PRT" Type="Int32" />
+    <Property Name="C_CFM" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="CFM_DT" Type="DateTime" Precision="3" />
+    <Property Name="OWNER_GRP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ADD_DT" Type="DateTime" Precision="3" />
+    <Property Name="CFM_USR_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="IP_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="CP_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BU_GUESTBOOK">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Reply" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ReplyTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="V_EMP_ALBUM">
+    <Key>
+      <PropertyRef Name="EMPLYID" />
+      <PropertyRef Name="EMPLYNM" />
+    </Key>
+    <Property Name="EMPLYID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EMPLYNM" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="DEPID" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="DEPNM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="C_STA" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="REGDT" Type="DateTime" Precision="3" />
+    <Property Name="LLFDT" Type="DateTime" Precision="3" />
+    <Property Name="CName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BRTHDT" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="PU_ALBUMS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="parentId" Type="Int32" />
+    <Property Name="childId" Type="Int32" />
+    <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Descript" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ImgPath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="KindType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KindType2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Size" Type="Int32" />
+    <Property Name="Prod_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pdate" Type="DateTime" Precision="0" />
+  </EntityType>
+</Schema>

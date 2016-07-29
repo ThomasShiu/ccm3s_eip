@@ -1,0 +1,186 @@
+﻿@* 樣版－功能選單*@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("styles", required: false)
+</head>
+<body>
+    @*功能選單開始*@
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <img src="~/Content/LOGOs-1.png" class="img-polaroid">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="~/Home/Index">精湛光學科技資訊入口網站 <span class="sr-only">(current)</span></a></li>
+                </ul>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                </form>
+
+
+                <ul class="nav navbar-nav">
+                    <li><a href="#">行事曆</a></li>
+                    <li><a href="#">組織圖</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">分機表<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">台灣分機表/MVPN</a></li>
+                            <li class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">大陸分機表</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">代理人一覽表</a></li>
+                    <li><a href="#">說明</a></li>
+                    <li><a href="#">徐世宇</a></li>
+                    <li><a href="#">登出</a></li>
+
+                </ul>
+      
+                <ul class="nav navbar-nav">
+                    <!--<li class="active"><a href="~/Home/Index">首頁 <span class="sr-only">(current)</span></a></li>-->
+                    <li>@Html.ActionLink("首頁", "Index", "Home", new { Area = "" }, new { })<span class="sr-only">(current)</span></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">公佈欄 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">員工公佈欄</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">員工訂便當(團購)調查</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">員工意見調查</a></li>
+                            <li class="divider"></li>
+                            <li role="presentation">@Html.ActionLink("員工意見反映", "Index", "GBHome", new { Area = "Guestbook" }, new { })</li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">員工請修登記</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">員工洗車登記申請</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">員工午餐登記申請</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">員工資訊問題反應單</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">表單公文 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">服務證明書</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">申請表單下載</a></li>
+                            <li class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">公文登錄通知</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">公文發文登錄申請</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">上傳區 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation">@Html.ActionLink("精湛大家族", "FamilyAlbum", "Family", new { Area = "Album" }, new { })</li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">活動照片上傳分享</a></li>
+                            <li role="presentation">@Html.ActionLink("震動盤照片", "ItemAlbum", "Item", new { Area = "Album" }, new { })</li>
+                            <li class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">固定資產照片上傳</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">庫存料件照片上傳</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">人資管理 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">加班申請作業</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">加班申請簡易作業</a></li>
+                            <li class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">加班申請批次作業</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">加班時數統計分析</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">人員差勤狀態設定</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">特殊休假日設定</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">每月生日名單</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">簽核流程 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">單筆加班簽核作業</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">批次加班簽核作業</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">一般單據簽核作業</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">公共管理 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">會議室預約登記</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">公務車輛預約登記</a></li>
+                            <li class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">其他物品預約登記</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">賓客參訪接待辦理</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">人員每日公出一覽表</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">人員每月車輛里程統計表</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">專案管理 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">專案時數登記</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">專案時數統計表</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">福委會 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">特約廠商</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">作業管理 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">品質異常單</a></li>
+                            <li class="divider"></li>
+                            <li role="presentation">@Html.ActionLink("資訊IP分配表", "Index", "IP_Address", new { Area = "Mis" }, new { })</li>
+                            <li role="presentation">@Html.ActionLink("售服產品主檔", "Index", "SrvHome", new { Area = "Srv" }, new { })</li>
+                            <li role="presentation">@Html.ActionLink("系統連線數統計", "Index", "SysConn", new { Area = "Chart" }, new { })</li>
+                            <li role="presentation">@Html.ActionLink("Report Test", "BrowseReport", "Rep", new { Area = "Reports" }, new { target = "_blank" })</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">後台管理 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">公共管理物件設定</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">員工訂便當商店設定</a></li>
+                        </ul>
+                    </li>
+                    @RenderSection("menu", required: false)
+                </ul>
+            </div>
+
+
+        </div><!-- /.container-fluid -->
+    </div>
+    @*功能選單結尾*@
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - CCM3S 精湛光學</p>
+        </footer>
+    </div>
+
+    @RenderSection("scripts", required: false)
+   
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+</body>
+</html>
